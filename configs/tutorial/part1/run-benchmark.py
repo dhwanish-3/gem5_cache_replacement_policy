@@ -2,13 +2,11 @@ import m5
 from m5.objects import *
 from m5.params import *
 from m5.util import addToPath
+import os
 
 # Set the path to gem5 configuration files
 addToPath("configs/common")
 addToPath("configs/example")
-
-# Import the LRUReplacementPolicy
-# from m5.objects import LRU2ReplacementPolicy
 
 # Define the system
 system = System()
@@ -99,23 +97,19 @@ system.mem_ctrl.port = system.membus.mem_side_ports
 # Create system memory
 system.system_port = system.membus.cpu_side_ports
 
-thispath = os.path.dirname(os.path.realpath(__file__))
-binary = os.path.join(
-    # thispath,
-    # "../../../",
-    "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/exe/bzip2_base.gcc43-64bit",
-)
+# Path to the SPEC CPU2006 bzip2 benchmark binary
+binary = "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/exe/bzip2_base.gcc43-64bit"
 
 system.workload = SEWorkload.init_compatible(binary)
 
 # Set up the workload
 process = Process()
 
-# to be modified
-process.cmd = [binary]  # Update 'input_file' with the actual input file path
+# Command to run the bzip2 benchmark
+process.cmd = [binary, "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/data/ref/input/input.source", "280"]
+
 system.cpu.workload = process
 system.cpu.createThreads()
-
 
 # Root configuration
 root = Root(full_system=False, system=system)
