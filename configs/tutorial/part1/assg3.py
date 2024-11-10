@@ -69,7 +69,6 @@ from common import (
 from common.Caches import *
 from common.cpu2000 import *
 from common.FileSystemConfig import config_filesystem
-from ruby import Ruby
 
 
 def get_processes(args):
@@ -187,29 +186,33 @@ if args.smt and args.num_cpus > 1:
 np = args.num_cpus
 mp0_path = multiprocesses[0].executable
 system = System(
-    cpu=[CPUClass(cpu_id=i) for i in range(np)],
-    mem_mode=test_mem_mode,
-    mem_ranges=[AddrRange(args.mem_size)],
+    cpu=DerivO3CPU(),
+    mem_mode="timing",
+    mem_ranges=[AddrRange("4GB")],
     cache_line_size=args.cacheline_size,
 )
+
+# CPU configuration (OoO CPU with specified parameters)
+system.cpu.numROBEntries = 192
+system.cpu.numIQEntries = 64
+
+# create the interrupt controller for the CPU and connect to the membus
+system.cpu.createInterruptController()
 
 if numThreads > 1:
     system.multi_thread = True
 
 # Create a top-level voltage domain
-system.voltage_domain = VoltageDomain(voltage=args.sys_voltage)
+system.voltage_domain = VoltageDomain()
 
 # Create a source clock for the system and set the clock period
 system.clk_domain = SrcClockDomain(
-    clock=args.sys_clock, voltage_domain=system.voltage_domain
+    clock="3GHz", voltage_domain=system.voltage_domain
 )
-
-# Create a CPU voltage domain
-system.cpu_voltage_domain = VoltageDomain()
 
 # Create a separate clock domain for the CPUs
 system.cpu_clk_domain = SrcClockDomain(
-    clock=args.cpu_clock, voltage_domain=system.cpu_voltage_domain
+    clock=args.cpu_clock, voltage_domain=system.voltage_domain
 )
 
 # If elastic tracing is enabled, then configure the cpu and attach the elastic
@@ -225,7 +228,7 @@ for cpu in system.cpu:
 if ObjectList.is_kvm_cpu(CPUClass) or ObjectList.is_kvm_cpu(FutureClass):
     if buildEnv["USE_X86_ISA"]:
         system.kvm_vm = KvmVM()
-        system.m5ops_base = max(0xFFFF0000, Addr(args.mem_size).getValue())
+        system.m5ops_base = max(0xFFFF0000, Addr("4GB").getValue())
         for process in multiprocesses:
             process.useArchPT = True
             process.kvmInSE = True
@@ -254,8 +257,8 @@ for i in range(np):
         system.cpu[i].addCheckerCpu()
 
     if args.bp_type:
-        bpClass = ObjectList.bp_list.get(args.bp_type)
-        system.cpu[i].branchPred = bpClass()
+        # bpClass = ObjectList.bp_list.get(args.bp_type)
+        system.cpu[i].branchPred = TAGE_SC_L_8KB()
 
     if args.indirect_bp_type:
         indirectBPClass = ObjectList.indirect_bp_list.get(
@@ -265,32 +268,72 @@ for i in range(np):
 
     system.cpu[i].createThreads()
 
-if args.ruby:
-    print("RUBY")
-    Ruby.create_system(args, False, system)
-    assert args.num_cpus == len(system.ruby._cpu_ports)
+# MemClass = Simulation.setMemClass(args)
+# system.membus = SystemXBar()
+# system.system_port = system.membus.cpu_side_ports
+# CacheConfig.config_cache(args, system)
+# MemConfig.config_mem(args, system)
 
-    system.ruby.clk_domain = SrcClockDomain(
-        clock=args.ruby_clock, voltage_domain=system.voltage_domain
-    )
-    for i in range(np):
-        ruby_port = system.ruby._cpu_ports[i]
+# ----------------------------------------#
+# L1 Instruction Cache configuration
+system.cpu.icache = Cache(
+    size="32kB",
+    assoc=4,
+    tag_latency=3,
+    data_latency=3,
+    response_latency=3,
+    mshrs=32,
+    tgts_per_mshr=16,
+)
 
-        # Create the interrupt controller and connect its ports to Ruby
-        # Note that the interrupt controller is always present but only
-        # in x86 does it have message ports that need to be connected
-        system.cpu[i].createInterruptController()
+# L1 Data Cache configuration
+system.cpu.dcache = Cache(
+    size="32kB",
+    assoc=4,
+    tag_latency=3,
+    data_latency=3,
+    response_latency=3,
+    mshrs=32,
+    tgts_per_mshr=16,
+)
 
-        # Connect the cpu's cache ports to Ruby
-        ruby_port.connectCpuPorts(system.cpu[i])
-else:
-    print("NO RUBY")
-    MemClass = Simulation.setMemClass(args)
-    system.membus = SystemXBar()
-    system.system_port = system.membus.cpu_side_ports
-    CacheConfig.config_cache(args, system)
-    MemConfig.config_mem(args, system)
-    config_filesystem(system, args)
+# Connecting L1 caches to the CPU
+system.cpu.icache_port = system.cpu.icache.cpu_side
+system.cpu.dcache_port = system.cpu.dcache.cpu_side
+
+# L2 Cache (LLC) configuration
+system.l2cache = Cache(
+    size="256kB",
+    assoc=16,
+    tag_latency=9,
+    data_latency=9,
+    response_latency=9,
+    mshrs=32,
+    tgts_per_mshr=16,
+    # replacement_policy=LRU2RP(),
+    prefetcher=BOPPrefetcher(),
+)
+
+system.l2bus = L2XBar()
+
+# Connecting L2 cache to the L1 caches
+system.cpu.icache.mem_side = system.l2bus.cpu_side_ports
+system.cpu.dcache.mem_side = system.l2bus.cpu_side_ports
+
+# Setting up the memory controller
+system.membus = SystemXBar()
+system.l2cache.mem_side = system.membus.cpu_side_ports
+system.l2cache.cpu_side = system.l2bus.mem_side_ports
+
+# For X86 only we make sure the interrupts care connect to memory.
+# Note: these are directly connected to the memory bus and are not cached.
+# For other ISA you should remove the following three lines.
+system.cpu.interrupts[0].pio = system.membus.mem_side_ports
+system.cpu.interrupts[0].int_requestor = system.membus.cpu_side_ports
+system.cpu.interrupts[0].int_responder = system.membus.mem_side_ports
+# ----------------------------------------#
+
+config_filesystem(system, args)
 
 system.workload = SEWorkload.init_compatible(mp0_path)
 

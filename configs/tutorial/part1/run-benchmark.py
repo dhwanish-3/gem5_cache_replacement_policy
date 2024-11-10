@@ -1,8 +1,9 @@
+import os
+
 import m5
 from m5.objects import *
 from m5.params import *
 from m5.util import addToPath
-import os
 
 # Set the path to gem5 configuration files
 addToPath("configs/common")
@@ -66,7 +67,7 @@ system.l2cache = Cache(
     response_latency=9,
     mshrs=32,
     tgts_per_mshr=16,
-    replacement_policy=LRU2RP(),
+    # replacement_policy=LRU2RP(),
     prefetcher=BOPPrefetcher(),
 )
 
@@ -106,7 +107,11 @@ system.workload = SEWorkload.init_compatible(binary)
 process = Process()
 
 # Command to run the bzip2 benchmark
-process.cmd = [binary, "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/data/ref/input/input.source", "280"]
+process.cmd = [
+    binary,
+    "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/data/ref/input/input.source",
+    "280",
+]
 
 system.cpu.workload = process
 system.cpu.createThreads()

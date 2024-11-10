@@ -266,7 +266,6 @@ for i in range(np):
     system.cpu[i].createThreads()
 
 if args.ruby:
-    print("RUBY")
     Ruby.create_system(args, False, system)
     assert args.num_cpus == len(system.ruby._cpu_ports)
 
@@ -284,7 +283,6 @@ if args.ruby:
         # Connect the cpu's cache ports to Ruby
         ruby_port.connectCpuPorts(system.cpu[i])
 else:
-    print("NO RUBY")
     MemClass = Simulation.setMemClass(args)
     system.membus = SystemXBar()
     system.system_port = system.membus.cpu_side_ports
