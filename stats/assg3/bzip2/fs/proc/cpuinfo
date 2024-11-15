@@ -16,4 +16,3 @@ cpuid level     : 1
 wp              : yes
 flags           : fpu
 cache alignment : 64
-

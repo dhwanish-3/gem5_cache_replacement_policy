@@ -22,7 +22,7 @@
         "m5ops_base": 0,
         "mem_mode": "atomic",
         "mem_ranges": [
-            "0:2147483648"
+            "0:4294967296"
         ],
         "memories": [
             "system.mem_ctrls.dram"
@@ -40,7 +40,7 @@
                 "app_path": "/proc",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/bzip2/fs/proc"
+                    "stats/assg3/bzip2/fs/proc"
                 ]
             },
             {
@@ -51,7 +51,7 @@
                 "app_path": "/sys",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/bzip2/fs/sys"
+                    "stats/assg3/bzip2/fs/sys"
                 ]
             },
             {
@@ -62,7 +62,7 @@
                 "app_path": "/tmp",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/bzip2/fs/tmp"
+                    "stats/assg3/bzip2/fs/tmp"
                 ]
             }
         ],
@@ -231,7 +231,7 @@
                     }
                 ],
                 "max_insts_all_threads": 0,
-                "max_insts_any_thread": 10000,
+                "max_insts_any_thread": 100000,
                 "mmu": {
                     "type": "X86MMU",
                     "cxx_class": "gem5::X86ISA::MMU",
@@ -404,7 +404,7 @@
                     "addr_ranges": [
                         "0:18446744073709551615"
                     ],
-                    "assoc": 16,
+                    "assoc": 2,
                     "clk_domain": "system.cpu_clk_domain",
                     "clusivity": "mostly_incl",
                     "compressor": null,
@@ -441,7 +441,7 @@
                     },
                     "response_latency": 3,
                     "sequential_access": false,
-                    "size": 16384,
+                    "size": 32768,
                     "system": "system",
                     "tag_latency": 3,
                     "tags": {
@@ -449,7 +449,7 @@
                         "cxx_class": "gem5::BaseSetAssoc",
                         "name": "tags",
                         "path": "system.cpu.dcache.tags",
-                        "assoc": 16,
+                        "assoc": 2,
                         "block_size": 64,
                         "clk_domain": "system.cpu_clk_domain",
                         "entry_size": 64,
@@ -459,10 +459,10 @@
                             "cxx_class": "gem5::SetAssociative",
                             "name": "indexing_policy",
                             "path": "system.cpu.dcache.tags.indexing_policy",
-                            "assoc": 16,
+                            "assoc": 2,
                             "entry_size": 64,
                             "eventq_index": 0,
-                            "size": 16384
+                            "size": 32768
                         },
                         "partitioning_manager": null,
                         "power_model": [],
@@ -481,7 +481,7 @@
                         },
                         "replacement_policy": "system.cpu.dcache.replacement_policy",
                         "sequential_access": false,
-                        "size": 16384,
+                        "size": 32768,
                         "system": "system",
                         "tag_latency": 3,
                         "warmup_percentage": 0
@@ -616,7 +616,7 @@
                     "addr_ranges": [
                         "0:18446744073709551615"
                     ],
-                    "assoc": 4,
+                    "assoc": 2,
                     "clk_domain": "system.cpu_clk_domain",
                     "clusivity": "mostly_incl",
                     "compressor": null,
@@ -653,7 +653,7 @@
                     },
                     "response_latency": 3,
                     "sequential_access": false,
-                    "size": 16384,
+                    "size": 32768,
                     "system": "system",
                     "tag_latency": 3,
                     "tags": {
@@ -661,7 +661,7 @@
                         "cxx_class": "gem5::BaseSetAssoc",
                         "name": "tags",
                         "path": "system.cpu.icache.tags",
-                        "assoc": 4,
+                        "assoc": 2,
                         "block_size": 64,
                         "clk_domain": "system.cpu_clk_domain",
                         "entry_size": 64,
@@ -671,10 +671,10 @@
                             "cxx_class": "gem5::SetAssociative",
                             "name": "indexing_policy",
                             "path": "system.cpu.icache.tags.indexing_policy",
-                            "assoc": 4,
+                            "assoc": 2,
                             "entry_size": 64,
                             "eventq_index": 0,
-                            "size": 16384
+                            "size": 32768
                         },
                         "partitioning_manager": null,
                         "power_model": [],
@@ -693,7 +693,7 @@
                         },
                         "replacement_policy": "system.cpu.icache.replacement_policy",
                         "sequential_access": false,
-                        "size": 16384,
+                        "size": 32768,
                         "system": "system",
                         "tag_latency": 3,
                         "warmup_percentage": 0
@@ -874,7 +874,7 @@
             "addr_ranges": [
                 "0:18446744073709551615"
             ],
-            "assoc": 16,
+            "assoc": 8,
             "clk_domain": "system.cpu_clk_domain",
             "clusivity": "mostly_incl",
             "compressor": null,
@@ -900,18 +900,68 @@
                 "leaders": [],
                 "possible_states": []
             },
-            "prefetcher": null,
+            "prefetcher": {
+                "type": "BOPPrefetcher",
+                "cxx_class": "gem5::prefetch::BOP",
+                "name": "prefetcher",
+                "path": "system.l2.prefetcher",
+                "bad_score": 10,
+                "block_size": 64,
+                "cache_snoop": false,
+                "clk_domain": "system.cpu_clk_domain",
+                "delay_queue_cycles": 60,
+                "delay_queue_enable": true,
+                "delay_queue_size": 15,
+                "eventq_index": 0,
+                "latency": 1,
+                "max_prefetch_requests_with_pending_translation": 32,
+                "negative_offsets_enable": true,
+                "offset_list_size": 46,
+                "on_data": true,
+                "on_inst": true,
+                "on_miss": false,
+                "on_read": true,
+                "on_write": true,
+                "page_bytes": 4096,
+                "power_model": [],
+                "power_state": {
+                    "type": "PowerState",
+                    "cxx_class": "gem5::PowerState",
+                    "name": "power_state",
+                    "path": "system.l2.prefetcher.power_state",
+                    "clk_gate_bins": 20,
+                    "clk_gate_max": 1000000000000,
+                    "clk_gate_min": 1000,
+                    "default_state": "UNDEFINED",
+                    "eventq_index": 0,
+                    "leaders": [],
+                    "possible_states": []
+                },
+                "prefetch_on_access": false,
+                "prefetch_on_pf_hit": true,
+                "queue_filter": true,
+                "queue_size": 32,
+                "queue_squash": true,
+                "round_max": 100,
+                "rr_size": 64,
+                "score_max": 31,
+                "sys": "system",
+                "tag_bits": 12,
+                "tag_prefetch": true,
+                "throttle_control_percentage": 0,
+                "use_virtual_addresses": false
+            },
             "replace_expansions": true,
             "replacement_policy": {
-                "type": "LRURP",
-                "cxx_class": "gem5::replacement_policy::LRU",
+                "type": "LIP2RP",
+                "cxx_class": "gem5::replacement_policy::LIP2",
                 "name": "replacement_policy",
                 "path": "system.l2.replacement_policy",
                 "eventq_index": 0
             },
             "response_latency": 9,
             "sequential_access": false,
-            "size": 2097152,
+            "size": 262144,
             "system": "system",
             "tag_latency": 9,
             "tags": {
@@ -919,7 +969,7 @@
                 "cxx_class": "gem5::BaseSetAssoc",
                 "name": "tags",
                 "path": "system.l2.tags",
-                "assoc": 16,
+                "assoc": 8,
                 "block_size": 64,
                 "clk_domain": "system.cpu_clk_domain",
                 "entry_size": 64,
@@ -929,10 +979,10 @@
                     "cxx_class": "gem5::SetAssociative",
                     "name": "indexing_policy",
                     "path": "system.l2.tags.indexing_policy",
-                    "assoc": 16,
+                    "assoc": 8,
                     "entry_size": 64,
                     "eventq_index": 0,
-                    "size": 2097152
+                    "size": 262144
                 },
                 "partitioning_manager": null,
                 "power_model": [],
@@ -951,7 +1001,7 @@
                 },
                 "replacement_policy": "system.l2.replacement_policy",
                 "sequential_access": false,
-                "size": 2097152,
+                "size": 262144,
                 "system": "system",
                 "tag_latency": 9,
                 "warmup_percentage": 0
@@ -1047,7 +1097,7 @@
                         "leaders": [],
                         "possible_states": []
                     },
-                    "range": "0:2147483648",
+                    "range": "0:4294967296",
                     "ranks_per_channel": 2,
                     "read_buffer_size": 32,
                     "tAAD": 1250,
@@ -1229,7 +1279,7 @@
                     "system.cpu.isa"
                 ],
                 "max_insts_all_threads": 0,
-                "max_insts_any_thread": 20000,
+                "max_insts_any_thread": 50000000,
                 "mmu": {
                     "type": "X86MMU",
                     "cxx_class": "gem5::X86ISA::MMU",
@@ -2331,7 +2381,7 @@
                 "issueToExecuteDelay": 1,
                 "issueWidth": 8,
                 "max_insts_all_threads": 0,
-                "max_insts_any_thread": 40000,
+                "max_insts_any_thread": 50000000,
                 "mmu": {
                     "type": "X86MMU",
                     "cxx_class": "gem5::X86ISA::MMU",
