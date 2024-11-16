@@ -40,7 +40,7 @@
                 "app_path": "/proc",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/assg3/bzip2/fs/proc"
+                    "stats/assg3/namd/lru/fs/proc"
                 ]
             },
             {
@@ -51,7 +51,7 @@
                 "app_path": "/sys",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/assg3/bzip2/fs/sys"
+                    "stats/assg3/namd/lru/fs/sys"
                 ]
             },
             {
@@ -62,7 +62,7 @@
                 "app_path": "/tmp",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/assg3/bzip2/fs/tmp"
+                    "stats/assg3/namd/lru/fs/tmp"
                 ]
             }
         ],
@@ -370,8 +370,13 @@
                         "name": "workload",
                         "path": "system.cpu.workload",
                         "cmd": [
-                            "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/exe/bzip2_base.gcc43-64bit",
-                            "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/data/ref/input/input.source"
+                            "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/444.namd/exe/namd_base.gcc43-64bit",
+                            "--input",
+                            "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/444.namd/data/all/input/namd.input",
+                            "--output",
+                            "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/444.namd/data/all/input/namd.out",
+                            "--iterations",
+                            "38"
                         ],
                         "cwd": "/media/dhwanish/backup/Documents/Programming/gem5",
                         "drivers": [],
@@ -380,7 +385,7 @@
                         "errout": "cerr",
                         "euid": 100,
                         "eventq_index": 0,
-                        "executable": "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/exe/bzip2_base.gcc43-64bit",
+                        "executable": "/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/444.namd/exe/namd_base.gcc43-64bit",
                         "gid": 1000,
                         "input": "cin",
                         "kvmInSE": false,
@@ -953,8 +958,8 @@
             },
             "replace_expansions": true,
             "replacement_policy": {
-                "type": "LIP2RP",
-                "cxx_class": "gem5::replacement_policy::LIP2",
+                "type": "LRURP",
+                "cxx_class": "gem5::replacement_policy::LRU",
                 "name": "replacement_policy",
                 "path": "system.l2.replacement_policy",
                 "eventq_index": 0

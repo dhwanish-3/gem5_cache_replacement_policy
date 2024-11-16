@@ -176,7 +176,7 @@ fontsize=14;
 label="workload \n: Process";
 shape=box;
 style="rounded, filled";
-tooltip="cmd&#61;/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/exe/bzip2_base.gcc43-64bit /home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/data/ref/input/input.source&#10;\cwd&#61;/media/dhwanish/backup/Documents/Programming/gem5&#10;\drivers&#61;&#10;\egid&#61;100&#10;\env&#61;&#10;\errout&#61;cerr&#10;\euid&#61;100&#10;\eventq_index&#61;0&#10;\executable&#61;/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/401.bzip2/exe/bzip2_base.gcc43-64bit&#10;\gid&#61;1000&#10;\input&#61;cin&#10;\kvmInSE&#61;false&#10;\maxStackSize&#61;67108864&#10;\output&#61;cout&#10;\pgid&#61;100&#10;\pid&#61;100&#10;\ppid&#61;0&#10;\release&#61;5.1.0&#10;\simpoint&#61;0&#10;\system&#61;system&#10;\uid&#61;100&#10;\useArchPT&#61;false";
+tooltip="cmd&#61;/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/445.gobmk/exe/gobmk_base.gcc43-64bit --quiet --mode gtp /home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/445.gobmk/data/ref/input/13x13.tst&#10;\cwd&#61;/media/dhwanish/backup/Documents/Programming/gem5&#10;\drivers&#61;&#10;\egid&#61;100&#10;\env&#61;&#10;\errout&#61;cerr&#10;\euid&#61;100&#10;\eventq_index&#61;0&#10;\executable&#61;/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/445.gobmk/exe/gobmk_base.gcc43-64bit&#10;\gid&#61;1000&#10;\input&#61;cin&#10;\kvmInSE&#61;false&#10;\maxStackSize&#61;67108864&#10;\output&#61;cout&#10;\pgid&#61;100&#10;\pid&#61;100&#10;\ppid&#61;0&#10;\release&#61;5.1.0&#10;\simpoint&#61;0&#10;\system&#61;system&#10;\uid&#61;100&#10;\useArchPT&#61;false";
 }
 
 subgraph cluster_system_cpu_isa {
@@ -623,7 +623,7 @@ fontsize=14;
 label="l2 \n: L2Cache";
 shape=box;
 style="rounded, filled";
-tooltip="addr_ranges&#61;0:18446744073709551615&#10;\assoc&#61;8&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\clusivity&#61;mostly_incl&#10;\compressor&#61;Null&#10;\data_latency&#61;9&#10;\demand_mshr_reserve&#61;1&#10;\eventq_index&#61;0&#10;\is_read_only&#61;false&#10;\max_miss_count&#61;0&#10;\move_contractions&#61;true&#10;\mshrs&#61;32&#10;\partitioning_manager&#61;Null&#10;\power_model&#61;&#10;\power_state&#61;system.l2.power_state&#10;\prefetcher&#61;system.l2.prefetcher&#10;\replace_expansions&#61;true&#10;\replacement_policy&#61;system.l2.replacement_policy&#10;\response_latency&#61;9&#10;\sequential_access&#61;false&#10;\size&#61;262144&#10;\system&#61;system&#10;\tag_latency&#61;9&#10;\tags&#61;system.l2.tags&#10;\tgts_per_mshr&#61;16&#10;\warmup_percentage&#61;0&#10;\write_allocator&#61;Null&#10;\write_buffers&#61;8&#10;\writeback_clean&#61;false";
+tooltip="addr_ranges&#61;0:18446744073709551615&#10;\assoc&#61;8&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\clusivity&#61;mostly_incl&#10;\compressor&#61;Null&#10;\data_latency&#61;9&#10;\demand_mshr_reserve&#61;1&#10;\eventq_index&#61;0&#10;\is_read_only&#61;false&#10;\max_miss_count&#61;0&#10;\move_contractions&#61;true&#10;\mshrs&#61;32&#10;\partitioning_manager&#61;Null&#10;\power_model&#61;&#10;\power_state&#61;system.l2.power_state&#10;\prefetcher&#61;Null&#10;\replace_expansions&#61;true&#10;\replacement_policy&#61;system.l2.replacement_policy&#10;\response_latency&#61;9&#10;\sequential_access&#61;false&#10;\size&#61;262144&#10;\system&#61;system&#10;\tag_latency&#61;9&#10;\tags&#61;system.l2.tags&#10;\tgts_per_mshr&#61;16&#10;\warmup_percentage&#61;0&#10;\write_allocator&#61;Null&#10;\write_buffers&#61;8&#10;\writeback_clean&#61;false";
 system_l2_cpu_side [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=cpu_side, shape=box, style="rounded, filled"];
 system_l2_mem_side [color="#000000", fillcolor="#94918b", fontcolor="#000000", fontname=Arial, fontsize=14, label=mem_side, shape=box, style="rounded, filled"];
 subgraph cluster_system_l2_replacement_policy {
@@ -684,30 +684,6 @@ label="power_state \n: PowerState";
 shape=box;
 style="rounded, filled";
 tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
-}
-
-subgraph cluster_system_l2_prefetcher {
-color="#000000";
-fillcolor="#9f9c95";
-fontcolor="#000000";
-fontname=Arial;
-fontsize=14;
-label="prefetcher \n: BOPPrefetcher";
-shape=box;
-style="rounded, filled";
-tooltip="bad_score&#61;10&#10;\block_size&#61;64&#10;\cache_snoop&#61;false&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\delay_queue_cycles&#61;60&#10;\delay_queue_enable&#61;true&#10;\delay_queue_size&#61;15&#10;\eventq_index&#61;0&#10;\latency&#61;1&#10;\max_prefetch_requests_with_pending_translation&#61;32&#10;\negative_offsets_enable&#61;true&#10;\offset_list_size&#61;46&#10;\on_data&#61;true&#10;\on_inst&#61;true&#10;\on_miss&#61;false&#10;\on_read&#61;true&#10;\on_write&#61;true&#10;\page_bytes&#61;4096&#10;\power_model&#61;&#10;\power_state&#61;system.l2.prefetcher.power_state&#10;\prefetch_on_access&#61;false&#10;\prefetch_on_pf_hit&#61;true&#10;\queue_filter&#61;true&#10;\queue_size&#61;32&#10;\queue_squash&#61;true&#10;\round_max&#61;100&#10;\rr_size&#61;64&#10;\score_max&#61;31&#10;\sys&#61;system&#10;\tag_bits&#61;12&#10;\tag_prefetch&#61;true&#10;\throttle_control_percentage&#61;0&#10;\use_virtual_addresses&#61;false";
-subgraph cluster_system_l2_prefetcher_power_state {
-color="#000000";
-fillcolor="#84827c";
-fontcolor="#000000";
-fontname=Arial;
-fontsize=14;
-label="power_state \n: PowerState";
-shape=box;
-style="rounded, filled";
-tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
-}
-
 }
 
 }
@@ -808,7 +784,7 @@ fontsize=14;
 label="redirect_paths0 \n: RedirectPath";
 shape=box;
 style="rounded, filled";
-tooltip="app_path&#61;/proc&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/bzip2/fs/proc";
+tooltip="app_path&#61;/proc&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/gobmk/lip2/fs/proc";
 }
 
 subgraph cluster_system_redirect_paths1 {
@@ -820,7 +796,7 @@ fontsize=14;
 label="redirect_paths1 \n: RedirectPath";
 shape=box;
 style="rounded, filled";
-tooltip="app_path&#61;/sys&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/bzip2/fs/sys";
+tooltip="app_path&#61;/sys&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/gobmk/lip2/fs/sys";
 }
 
 subgraph cluster_system_redirect_paths2 {
@@ -832,7 +808,7 @@ fontsize=14;
 label="redirect_paths2 \n: RedirectPath";
 shape=box;
 style="rounded, filled";
-tooltip="app_path&#61;/tmp&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/bzip2/fs/tmp";
+tooltip="app_path&#61;/tmp&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/gobmk/lip2/fs/tmp";
 }
 
 subgraph cluster_system_workload {
