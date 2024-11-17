@@ -77,7 +77,7 @@ class L2Cache(Cache):
     tgts_per_mshr = 16
     write_buffers = 8
     prefetcher = BOPPrefetcher()
-    replacement_policy = LIP2RP()
+    # replacement_policy = LIP2RP()
 
 
 class IOCache(Cache):

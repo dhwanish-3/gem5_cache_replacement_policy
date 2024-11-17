@@ -40,7 +40,7 @@
                 "app_path": "/proc",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/assg3/namd/lip/fs/proc"
+                    "stats/assg3/namd/lip2/fs/proc"
                 ]
             },
             {
@@ -51,7 +51,7 @@
                 "app_path": "/sys",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/assg3/namd/lip/fs/sys"
+                    "stats/assg3/namd/lip2/fs/sys"
                 ]
             },
             {
@@ -62,7 +62,7 @@
                 "app_path": "/tmp",
                 "eventq_index": 0,
                 "host_paths": [
-                    "stats/assg3/namd/lip/fs/tmp"
+                    "stats/assg3/namd/lip2/fs/tmp"
                 ]
             }
         ],

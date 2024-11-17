@@ -1,4 +1,4 @@
-build/X86/gem5.opt -d stats/assg3/namd/lip \
+build/X86/gem5.opt -d stats/assg3/namd/lru \
 configs/deprecated/example/se.py \
 --cpu-type=DerivO3CPU --sys-clock=3GHz \
 --caches --l1i_size=32kB --l1d_size=32kB \

@@ -904,7 +904,7 @@ fontsize=14;
 label="redirect_paths0 \n: RedirectPath";
 shape=box;
 style="rounded, filled";
-tooltip="app_path&#61;/proc&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/namd/lip/fs/proc";
+tooltip="app_path&#61;/proc&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/namd/lip2/fs/proc";
 }
 
 subgraph cluster_system_redirect_paths1 {
@@ -916,7 +916,7 @@ fontsize=14;
 label="redirect_paths1 \n: RedirectPath";
 shape=box;
 style="rounded, filled";
-tooltip="app_path&#61;/sys&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/namd/lip/fs/sys";
+tooltip="app_path&#61;/sys&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/namd/lip2/fs/sys";
 }
 
 subgraph cluster_system_redirect_paths2 {
@@ -928,7 +928,7 @@ fontsize=14;
 label="redirect_paths2 \n: RedirectPath";
 shape=box;
 style="rounded, filled";
-tooltip="app_path&#61;/tmp&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/namd/lip/fs/tmp";
+tooltip="app_path&#61;/tmp&#10;\eventq_index&#61;0&#10;\host_paths&#61;stats/assg3/namd/lip2/fs/tmp";
 }
 
 subgraph cluster_system_workload {

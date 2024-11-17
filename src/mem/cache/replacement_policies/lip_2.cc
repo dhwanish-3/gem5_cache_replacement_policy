@@ -22,7 +22,7 @@ LIP2::reset(const std::shared_ptr<ReplacementData>& replacement_data) const
 
     // Set last touch timestamp
     std::static_pointer_cast<LRUReplData>(
-        replacement_data)->lastTouchTick = secondSmallestTick + 1;
+        replacement_data)->lastTouchTick = Tick(0);
 
     // std::cout << "second smallestTick: " << secondSmallestTick << std::endl;
     // std::cout << "smallestTick: " << smallestTick << std::endl;
@@ -54,8 +54,8 @@ LIP2::getVictim(const ReplacementCandidates& candidates) const
     // There must be at least one replacement candidate
     assert(candidates.size() > 0);
 
-    smallestTick = Tick(-1);
-    secondSmallestTick = Tick(0);
+    smallestTick = curTick();
+    secondSmallestTick = curTick();
 
     // Visit all candidates to find victim
     ReplaceableEntry* victim = candidates[0];
