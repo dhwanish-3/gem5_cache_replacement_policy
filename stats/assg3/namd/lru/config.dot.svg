@@ -29,7 +29,7 @@
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_system_cpu</title>
-<g id="a_clust4"><a xlink:title="branchPred=Null&#10;checker=Null&#10;clk_domain=system.cpu_clk_domain&#10;cpu_id=0&#10;decoder=system.cpu.decoder&#10;do_checkpoint_insts=true&#10;do_statistics_insts=true&#10;eventq_index=0&#10;function_trace=false&#10;function_trace_start=0&#10;interrupts=system.cpu.interrupts&#10;isa=system.cpu.isa&#10;max_insts_all_threads=0&#10;max_insts_any_thread=100000&#10;mmu=system.cpu.mmu&#10;&#10;umThreads=1&#10;power_gating_on_idle=false&#10;power_model=&#10;power_state=system.cpu.power_state&#10;progress_interval=0&#10;pwr_gating_latency=300&#10;simpoint_start_insts=&#10;simulate_data_stalls=false&#10;simulate_inst_stalls=false&#10;socket_id=0&#10;switched_out=false&#10;syscallRetryLatency=10000&#10;system=system&#10;tracer=system.cpu.tracer&#10;width=1&#10;workload=system.cpu.workload">
+<g id="a_clust4"><a xlink:title="branchPred=system.cpu.branchPred&#10;checker=Null&#10;clk_domain=system.cpu_clk_domain&#10;cpu_id=0&#10;decoder=system.cpu.decoder&#10;do_checkpoint_insts=true&#10;do_statistics_insts=true&#10;eventq_index=0&#10;function_trace=false&#10;function_trace_start=0&#10;interrupts=system.cpu.interrupts&#10;isa=system.cpu.isa&#10;max_insts_all_threads=0&#10;max_insts_any_thread=100000&#10;mmu=system.cpu.mmu&#10;&#10;umThreads=1&#10;power_gating_on_idle=false&#10;power_model=&#10;power_state=system.cpu.power_state&#10;progress_interval=0&#10;pwr_gating_latency=300&#10;simpoint_start_insts=&#10;simulate_data_stalls=false&#10;simulate_inst_stalls=false&#10;socket_id=0&#10;switched_out=false&#10;syscallRetryLatency=10000&#10;system=system&#10;tracer=system.cpu.tracer&#10;width=1&#10;workload=system.cpu.workload">
 <path fill="#bbc6d9" stroke="#000000" d="M406,-24C406,-24 1271,-24 1271,-24 1277,-24 1283,-30 1283,-36 1283,-36 1283,-378 1283,-378 1283,-384 1277,-390 1271,-390 1271,-390 406,-390 406,-390 400,-390 394,-384 394,-378 394,-378 394,-36 394,-36 394,-30 400,-24 406,-24"/>
 <text text-anchor="middle" x="838.5" y="-374.8" font-family="Arial" font-size="14.00" fill="#000000">cpu </text>
 <text text-anchor="middle" x="838.5" y="-359.8" font-family="Arial" font-size="14.00" fill="#000000">: X86AtomicSimpleCPU</text>
@@ -81,81 +81,81 @@
 </a>
 </g>
 </g>
-<g id="clust18" class="cluster">
+<g id="clust26" class="cluster">
 <title>cluster_system_cpu_icache</title>
-<g id="a_clust18"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=2&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=3&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=true&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=32&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.cpu.icache.power_state&#10;prefetcher=Null&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.cpu.icache.replacement_policy&#10;&#13;esponse_latency=3&#10;sequential_access=false&#10;size=32768&#10;system=system&#10;tag_latency=3&#10;tags=system.cpu.icache.tags&#10;tgts_per_mshr=16&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=true">
+<g id="a_clust26"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=2&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=3&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=true&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=32&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.cpu.icache.power_state&#10;prefetcher=Null&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.cpu.icache.replacement_policy&#10;&#13;esponse_latency=3&#10;sequential_access=false&#10;size=32768&#10;system=system&#10;tag_latency=3&#10;tags=system.cpu.icache.tags&#10;tgts_per_mshr=16&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=true">
 <path fill="#bab6ae" stroke="#000000" d="M608,-32C608,-32 770,-32 770,-32 776,-32 782,-38 782,-44 782,-44 782,-110 782,-110 782,-116 776,-122 770,-122 770,-122 608,-122 608,-122 602,-122 596,-116 596,-110 596,-110 596,-44 596,-44 596,-38 602,-32 608,-32"/>
 <text text-anchor="middle" x="689" y="-106.8" font-family="Arial" font-size="14.00" fill="#000000">icache </text>
 <text text-anchor="middle" x="689" y="-91.8" font-family="Arial" font-size="14.00" fill="#000000">: L1_ICache</text>
 </a>
 </g>
 </g>
-<g id="clust24" class="cluster">
+<g id="clust32" class="cluster">
 <title>cluster_system_cpu_dcache</title>
-<g id="a_clust24"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=2&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=3&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=false&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=32&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.cpu.dcache.power_state&#10;prefetcher=Null&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.cpu.dcache.replacement_policy&#10;&#13;esponse_latency=3&#10;sequential_access=false&#10;size=32768&#10;system=system&#10;tag_latency=3&#10;tags=system.cpu.dcache.tags&#10;tgts_per_mshr=16&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=false">
+<g id="a_clust32"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=2&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=3&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=false&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=32&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.cpu.dcache.power_state&#10;prefetcher=Null&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.cpu.dcache.replacement_policy&#10;&#13;esponse_latency=3&#10;sequential_access=false&#10;size=32768&#10;system=system&#10;tag_latency=3&#10;tags=system.cpu.dcache.tags&#10;tgts_per_mshr=16&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=false">
 <path fill="#bab6ae" stroke="#000000" d="M414,-32C414,-32 576,-32 576,-32 582,-32 588,-38 588,-44 588,-44 588,-110 588,-110 588,-116 582,-122 576,-122 576,-122 414,-122 414,-122 408,-122 402,-116 402,-110 402,-110 402,-44 402,-44 402,-38 408,-32 414,-32"/>
 <text text-anchor="middle" x="495" y="-106.8" font-family="Arial" font-size="14.00" fill="#000000">dcache </text>
 <text text-anchor="middle" x="495" y="-91.8" font-family="Arial" font-size="14.00" fill="#000000">: L1_DCache</text>
 </a>
 </g>
 </g>
-<g id="clust30" class="cluster">
+<g id="clust38" class="cluster">
 <title>cluster_system_cpu_itb_walker_cache</title>
-<g id="a_clust30"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=2&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=2&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=false&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=10&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.cpu.itb_walker_cache.power_state&#10;prefetcher=Null&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.cpu.itb_walker_cache.replacement_policy&#10;&#13;esponse_latency=2&#10;sequential_access=false&#10;size=1024&#10;system=system&#10;tag_latency=2&#10;tags=system.cpu.itb_walker_cache.tags&#10;tgts_per_mshr=12&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=false">
+<g id="a_clust38"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=2&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=2&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=false&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=10&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.cpu.itb_walker_cache.power_state&#10;prefetcher=Null&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.cpu.itb_walker_cache.replacement_policy&#10;&#13;esponse_latency=2&#10;sequential_access=false&#10;size=1024&#10;system=system&#10;tag_latency=2&#10;tags=system.cpu.itb_walker_cache.tags&#10;tgts_per_mshr=12&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=false">
 <path fill="#bab6ae" stroke="#000000" d="M810,-32C810,-32 972,-32 972,-32 978,-32 984,-38 984,-44 984,-44 984,-110 984,-110 984,-116 978,-122 972,-122 972,-122 810,-122 810,-122 804,-122 798,-116 798,-110 798,-110 798,-44 798,-44 798,-38 804,-32 810,-32"/>
 <text text-anchor="middle" x="891" y="-106.8" font-family="Arial" font-size="14.00" fill="#000000">itb_walker_cache </text>
 <text text-anchor="middle" x="891" y="-91.8" font-family="Arial" font-size="14.00" fill="#000000">: PageTableWalkerCache</text>
 </a>
 </g>
 </g>
-<g id="clust36" class="cluster">
+<g id="clust44" class="cluster">
 <title>cluster_system_cpu_dtb_walker_cache</title>
-<g id="a_clust36"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=2&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=2&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=false&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=10&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.cpu.dtb_walker_cache.power_state&#10;prefetcher=Null&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.cpu.dtb_walker_cache.replacement_policy&#10;&#13;esponse_latency=2&#10;sequential_access=false&#10;size=1024&#10;system=system&#10;tag_latency=2&#10;tags=system.cpu.dtb_walker_cache.tags&#10;tgts_per_mshr=12&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=false">
+<g id="a_clust44"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=2&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=2&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=false&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=10&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.cpu.dtb_walker_cache.power_state&#10;prefetcher=Null&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.cpu.dtb_walker_cache.replacement_policy&#10;&#13;esponse_latency=2&#10;sequential_access=false&#10;size=1024&#10;system=system&#10;tag_latency=2&#10;tags=system.cpu.dtb_walker_cache.tags&#10;tgts_per_mshr=12&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=false">
 <path fill="#bab6ae" stroke="#000000" d="M1008,-32C1008,-32 1170,-32 1170,-32 1176,-32 1182,-38 1182,-44 1182,-44 1182,-110 1182,-110 1182,-116 1176,-122 1170,-122 1170,-122 1008,-122 1008,-122 1002,-122 996,-116 996,-110 996,-110 996,-44 996,-44 996,-38 1002,-32 1008,-32"/>
 <text text-anchor="middle" x="1089" y="-106.8" font-family="Arial" font-size="14.00" fill="#000000">dtb_walker_cache </text>
 <text text-anchor="middle" x="1089" y="-91.8" font-family="Arial" font-size="14.00" fill="#000000">: PageTableWalkerCache</text>
 </a>
 </g>
 </g>
-<g id="clust42" class="cluster">
+<g id="clust50" class="cluster">
 <title>cluster_system_cpu_interrupts</title>
-<g id="a_clust42"><a xlink:title="clk_domain=system.cpu.interrupts.clk_domain&#10;eventq_index=0&#10;int_latency=1000&#10;pio_latency=100000&#10;system=system">
+<g id="a_clust50"><a xlink:title="clk_domain=system.cpu.interrupts.clk_domain&#10;eventq_index=0&#10;int_latency=1000&#10;pio_latency=100000&#10;system=system">
 <path fill="#bab6ae" stroke="#000000" d="M620,-162C620,-162 897,-162 897,-162 903,-162 909,-168 909,-174 909,-174 909,-240 909,-240 909,-246 903,-252 897,-252 897,-252 620,-252 620,-252 614,-252 608,-246 608,-240 608,-240 608,-174 608,-174 608,-168 614,-162 620,-162"/>
 <text text-anchor="middle" x="758.5" y="-236.8" font-family="Arial" font-size="14.00" fill="#000000">interrupts </text>
 <text text-anchor="middle" x="758.5" y="-221.8" font-family="Arial" font-size="14.00" fill="#000000">: X86LocalApic</text>
 </a>
 </g>
 </g>
-<g id="clust48" class="cluster">
+<g id="clust56" class="cluster">
 <title>cluster_system_membus</title>
-<g id="a_clust48"><a xlink:title="clk_domain=system.clk_domain&#10;eventq_index=0&#10;forward_latency=4&#10;frontend_latency=3&#10;header_latency=1&#10;max_outstanding_snoops=512&#10;max_routing_table_size=512&#10;point_of_coherency=true&#10;point_of_unification=true&#10;power_model=&#10;power_state=system.membus.power_state&#10;&#13;esponse_latency=2&#10;snoop_filter=system.membus.snoop_filter&#10;snoop_response_latency=4&#10;system=system&#10;use_default_range=false&#10;width=16">
+<g id="a_clust56"><a xlink:title="clk_domain=system.clk_domain&#10;eventq_index=0&#10;forward_latency=4&#10;frontend_latency=3&#10;header_latency=1&#10;max_outstanding_snoops=512&#10;max_routing_table_size=512&#10;point_of_coherency=true&#10;point_of_unification=true&#10;power_model=&#10;power_state=system.membus.power_state&#10;&#13;esponse_latency=2&#10;snoop_filter=system.membus.snoop_filter&#10;snoop_response_latency=4&#10;system=system&#10;use_default_range=false&#10;width=16">
 <path fill="#6f798c" stroke="#000000" d="M598,-398C598,-398 834,-398 834,-398 840,-398 846,-404 846,-410 846,-410 846,-476 846,-476 846,-482 840,-488 834,-488 834,-488 598,-488 598,-488 592,-488 586,-482 586,-476 586,-476 586,-410 586,-410 586,-404 592,-398 598,-398"/>
 <text text-anchor="middle" x="716" y="-472.8" font-family="Arial" font-size="14.00" fill="#000000">membus </text>
 <text text-anchor="middle" x="716" y="-457.8" font-family="Arial" font-size="14.00" fill="#000000">: SystemXBar</text>
 </a>
 </g>
 </g>
-<g id="clust51" class="cluster">
+<g id="clust59" class="cluster">
 <title>cluster_system_l2</title>
-<g id="a_clust51"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=8&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=9&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=false&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=32&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.l2.power_state&#10;prefetcher=system.l2.prefetcher&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.l2.replacement_policy&#10;&#13;esponse_latency=9&#10;sequential_access=false&#10;size=262144&#10;system=system&#10;tag_latency=9&#10;tags=system.l2.tags&#10;tgts_per_mshr=16&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=false">
+<g id="a_clust59"><a xlink:title="addr_ranges=0:18446744073709551615&#10;assoc=8&#10;clk_domain=system.cpu_clk_domain&#10;clusivity=mostly_incl&#10;compressor=Null&#10;data_latency=9&#10;demand_mshr_reserve=1&#10;eventq_index=0&#10;is_read_only=false&#10;max_miss_count=0&#10;move_contractions=true&#10;mshrs=32&#10;partitioning_manager=Null&#10;power_model=&#10;power_state=system.l2.power_state&#10;prefetcher=system.l2.prefetcher&#10;&#13;eplace_expansions=true&#10;&#13;eplacement_policy=system.l2.replacement_policy&#10;&#13;esponse_latency=9&#10;sequential_access=false&#10;size=262144&#10;system=system&#10;tag_latency=9&#10;tags=system.l2.tags&#10;tgts_per_mshr=16&#10;warmup_percentage=0&#10;write_allocator=Null&#10;write_buffers=8&#10;writeback_clean=false">
 <path fill="#bab6ae" stroke="#000000" d="M49,-32C49,-32 211,-32 211,-32 217,-32 223,-38 223,-44 223,-44 223,-110 223,-110 223,-116 217,-122 211,-122 211,-122 49,-122 49,-122 43,-122 37,-116 37,-110 37,-110 37,-44 37,-44 37,-38 43,-32 49,-32"/>
 <text text-anchor="middle" x="130" y="-106.8" font-family="Arial" font-size="14.00" fill="#000000">l2 </text>
 <text text-anchor="middle" x="130" y="-91.8" font-family="Arial" font-size="14.00" fill="#000000">: L2Cache</text>
 </a>
 </g>
 </g>
-<g id="clust59" class="cluster">
+<g id="clust67" class="cluster">
 <title>cluster_system_tol2bus</title>
-<g id="a_clust59"><a xlink:title="clk_domain=system.cpu_clk_domain&#10;eventq_index=0&#10;forward_latency=0&#10;frontend_latency=1&#10;header_latency=1&#10;max_outstanding_snoops=512&#10;max_routing_table_size=512&#10;point_of_coherency=false&#10;point_of_unification=true&#10;power_model=&#10;power_state=system.tol2bus.power_state&#10;&#13;esponse_latency=1&#10;snoop_filter=system.tol2bus.snoop_filter&#10;snoop_response_latency=1&#10;system=system&#10;use_default_range=false&#10;width=32">
+<g id="a_clust67"><a xlink:title="clk_domain=system.cpu_clk_domain&#10;eventq_index=0&#10;forward_latency=0&#10;frontend_latency=1&#10;header_latency=1&#10;max_outstanding_snoops=512&#10;max_routing_table_size=512&#10;point_of_coherency=false&#10;point_of_unification=true&#10;power_model=&#10;power_state=system.tol2bus.power_state&#10;&#13;esponse_latency=1&#10;snoop_filter=system.tol2bus.snoop_filter&#10;snoop_response_latency=1&#10;system=system&#10;use_default_range=false&#10;width=32">
 <path fill="#6f798c" stroke="#000000" d="M138,-162C138,-162 374,-162 374,-162 380,-162 386,-168 386,-174 386,-174 386,-240 386,-240 386,-246 380,-252 374,-252 374,-252 138,-252 138,-252 132,-252 126,-246 126,-240 126,-240 126,-174 126,-174 126,-168 132,-162 138,-162"/>
 <text text-anchor="middle" x="256" y="-236.8" font-family="Arial" font-size="14.00" fill="#000000">tol2bus </text>
 <text text-anchor="middle" x="256" y="-221.8" font-family="Arial" font-size="14.00" fill="#000000">: L2XBar</text>
 </a>
 </g>
 </g>
-<g id="clust62" class="cluster">
+<g id="clust70" class="cluster">
 <title>cluster_system_mem_ctrls</title>
-<g id="a_clust62"><a xlink:title="clk_domain=system.clk_domain&#10;command_window=10000&#10;disable_sanity_check=false&#10;dram=system.mem_ctrls.dram&#10;eventq_index=0&#10;mem_sched_policy=frfcfs&#10;min_reads_per_switch=16&#10;min_writes_per_switch=16&#10;power_model=&#10;power_state=system.mem_ctrls.power_state&#10;qos_policy=Null&#10;qos_priorities=1&#10;qos_priority_escalation=false&#10;qos_q_policy=fifo&#10;qos_requestors= &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#10;qos_syncro_scheduler=false&#10;qos_turnaround_policy=Null&#10;static_backend_latency=10000&#10;static_frontend_latency=10000&#10;system=system&#10;write_high_thresh_perc=85&#10;write_low_thresh_perc=50">
+<g id="a_clust70"><a xlink:title="clk_domain=system.clk_domain&#10;command_window=10000&#10;disable_sanity_check=false&#10;dram=system.mem_ctrls.dram&#10;eventq_index=0&#10;mem_sched_policy=frfcfs&#10;min_reads_per_switch=16&#10;min_writes_per_switch=16&#10;power_model=&#10;power_state=system.mem_ctrls.power_state&#10;qos_policy=Null&#10;qos_priorities=1&#10;qos_priority_escalation=false&#10;qos_q_policy=fifo&#10;qos_requestors= &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#10;qos_syncro_scheduler=false&#10;qos_turnaround_policy=Null&#10;static_backend_latency=10000&#10;static_frontend_latency=10000&#10;system=system&#10;write_high_thresh_perc=85&#10;write_low_thresh_perc=50">
 <path fill="#bab6ae" stroke="#000000" d="M46,-162C46,-162 106,-162 106,-162 112,-162 118,-168 118,-174 118,-174 118,-240 118,-240 118,-246 112,-252 106,-252 106,-252 46,-252 46,-252 40,-252 34,-246 34,-240 34,-240 34,-174 34,-174 34,-168 40,-162 46,-162"/>
 <text text-anchor="middle" x="76" y="-236.8" font-family="Arial" font-size="14.00" fill="#000000">mem_ctrls </text>
 <text text-anchor="middle" x="76" y="-221.8" font-family="Arial" font-size="14.00" fill="#000000">: MemCtrl</text>

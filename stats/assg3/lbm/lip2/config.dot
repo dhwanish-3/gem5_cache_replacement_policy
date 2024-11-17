@@ -42,7 +42,7 @@ fontsize=14;
 label="cpu \n: X86AtomicSimpleCPU";
 shape=box;
 style="rounded, filled";
-tooltip="branchPred&#61;Null&#10;\checker&#61;Null&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cpu_id&#61;0&#10;\decoder&#61;system.cpu.decoder&#10;\do_checkpoint_insts&#61;true&#10;\do_statistics_insts&#61;true&#10;\eventq_index&#61;0&#10;\function_trace&#61;false&#10;\function_trace_start&#61;0&#10;\interrupts&#61;system.cpu.interrupts&#10;\isa&#61;system.cpu.isa&#10;\max_insts_all_threads&#61;0&#10;\max_insts_any_thread&#61;100000&#10;\mmu&#61;system.cpu.mmu&#10;\numThreads&#61;1&#10;\power_gating_on_idle&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.cpu.power_state&#10;\progress_interval&#61;0&#10;\pwr_gating_latency&#61;300&#10;\simpoint_start_insts&#61;&#10;\simulate_data_stalls&#61;false&#10;\simulate_inst_stalls&#61;false&#10;\socket_id&#61;0&#10;\switched_out&#61;false&#10;\syscallRetryLatency&#61;10000&#10;\system&#61;system&#10;\tracer&#61;system.cpu.tracer&#10;\width&#61;1&#10;\workload&#61;system.cpu.workload";
+tooltip="branchPred&#61;system.cpu.branchPred&#10;\checker&#61;Null&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\cpu_id&#61;0&#10;\decoder&#61;system.cpu.decoder&#10;\do_checkpoint_insts&#61;true&#10;\do_statistics_insts&#61;true&#10;\eventq_index&#61;0&#10;\function_trace&#61;false&#10;\function_trace_start&#61;0&#10;\interrupts&#61;system.cpu.interrupts&#10;\isa&#61;system.cpu.isa&#10;\max_insts_all_threads&#61;0&#10;\max_insts_any_thread&#61;100000&#10;\mmu&#61;system.cpu.mmu&#10;\numThreads&#61;1&#10;\power_gating_on_idle&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.cpu.power_state&#10;\progress_interval&#61;0&#10;\pwr_gating_latency&#61;300&#10;\simpoint_start_insts&#61;&#10;\simulate_data_stalls&#61;false&#10;\simulate_inst_stalls&#61;false&#10;\socket_id&#61;0&#10;\switched_out&#61;false&#10;\syscallRetryLatency&#61;10000&#10;\system&#61;system&#10;\tracer&#61;system.cpu.tracer&#10;\width&#61;1&#10;\workload&#61;system.cpu.workload";
 system_cpu_icache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=icache_port, shape=box, style="rounded, filled"];
 system_cpu_dcache_port [color="#000000", fillcolor="#959ead", fontcolor="#000000", fontname=Arial, fontsize=14, label=dcache_port, shape=box, style="rounded, filled"];
 subgraph cluster_system_cpu_mmu {
@@ -177,6 +177,102 @@ label="workload \n: Process";
 shape=box;
 style="rounded, filled";
 tooltip="cmd&#61;/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/470.lbm/exe/lbm_base.gcc43-64bit 300 /home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/470.lbm/data/ref/input/output.dat 0 0 /home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/470.lbm/data/ref/input/100_100_130_ldc.of&#10;\cwd&#61;/media/dhwanish/backup/Documents/Programming/gem5&#10;\drivers&#61;&#10;\egid&#61;100&#10;\env&#61;&#10;\errout&#61;cerr&#10;\euid&#61;100&#10;\eventq_index&#61;0&#10;\executable&#61;/home/dhwanish/Documents/Benchmarks/benchspec/CPU2006/470.lbm/exe/lbm_base.gcc43-64bit&#10;\gid&#61;1000&#10;\input&#61;cin&#10;\kvmInSE&#61;false&#10;\maxStackSize&#61;67108864&#10;\output&#61;cout&#10;\pgid&#61;100&#10;\pid&#61;100&#10;\ppid&#61;0&#10;\release&#61;5.1.0&#10;\simpoint&#61;0&#10;\system&#61;system&#10;\uid&#61;100&#10;\useArchPT&#61;false";
+}
+
+subgraph cluster_system_cpu_branchPred {
+color="#000000";
+fillcolor="#bab6ae";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="branchPred \n: TAGE_SC_L_8KB";
+shape=box;
+style="rounded, filled";
+tooltip="btb&#61;system.cpu.branchPred.btb&#10;\eventq_index&#61;0&#10;\indirectBranchPred&#61;system.cpu.branchPred.indirectBranchPred&#10;\instShiftAmt&#61;2&#10;\loop_predictor&#61;system.cpu.branchPred.loop_predictor&#10;\numThreads&#61;1&#10;\ras&#61;system.cpu.branchPred.ras&#10;\requiresBTBHit&#61;false&#10;\statistical_corrector&#61;system.cpu.branchPred.statistical_corrector&#10;\tage&#61;system.cpu.branchPred.tage";
+subgraph cluster_system_cpu_branchPred_tage {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="tage \n: TAGE_SC_L_TAGE_8KB";
+shape=box;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\firstLongTagTable&#61;11&#10;\histBufferSize&#61;2097152&#10;\initialTCounterValue&#61;512&#10;\instShiftAmt&#61;2&#10;\logRatioBiModalHystEntries&#61;2&#10;\logTagTableSize&#61;7&#10;\logTagTableSizes&#61;12&#10;\logUResetPeriod&#61;10&#10;\longTagsSize&#61;12&#10;\longTagsTageFactor&#61;17&#10;\maxHist&#61;1000&#10;\maxNumAlloc&#61;2&#10;\minHist&#61;4&#10;\nHistoryTables&#61;30&#10;\noSkip&#61;false false true false true false true true true true true true true true true true true true true true true false true false true false true false true false true&#10;\numThreads&#61;1&#10;\numUseAltOnNa&#61;16&#10;\pathHistBits&#61;27&#10;\shortTagsSize&#61;8&#10;\shortTagsTageFactor&#61;9&#10;\speculativeHistUpdate&#61;false&#10;\tagTableCounterBits&#61;3&#10;\tagTableTagWidths&#61;0&#10;\tagTableUBits&#61;2&#10;\truncatePathHist&#61;false&#10;\useAltOnNaBits&#61;5";
+}
+
+subgraph cluster_system_cpu_branchPred_loop_predictor {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="loop_predictor \n: TAGE_SC_L_8KB_LoopPredictor";
+shape=box;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\initialLoopAge&#61;7&#10;\initialLoopIter&#61;0&#10;\logLoopTableAssoc&#61;2&#10;\logSizeLoopPred&#61;3&#10;\loopTableAgeBits&#61;4&#10;\loopTableConfidenceBits&#61;4&#10;\loopTableIterBits&#61;10&#10;\loopTableTagBits&#61;10&#10;\optionalAgeReset&#61;false&#10;\restrictAllocation&#61;true&#10;\useDirectionBit&#61;true&#10;\useHashing&#61;true&#10;\useSpeculation&#61;false&#10;\withLoopBits&#61;7";
+}
+
+subgraph cluster_system_cpu_branchPred_statistical_corrector {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="statistical_corrector \n: TAGE_SC_L_8KB_StatisticalCorrector";
+shape=box;
+style="rounded, filled";
+tooltip="bwWeightInitValue&#61;7&#10;\bwm&#61;16 8&#10;\bwnb&#61;2&#10;\chooserConfWidth&#61;7&#10;\eventq_index&#61;0&#10;\extraWeightsWidth&#61;6&#10;\gm&#61;6 3&#10;\gnb&#61;2&#10;\iWeightInitValue&#61;7&#10;\im&#61;8&#10;\inb&#61;1&#10;\initialUpdateThresholdValue&#61;0&#10;\lWeightInitValue&#61;7&#10;\lm&#61;6 3&#10;\lnb&#61;2&#10;\logBias&#61;7&#10;\logBwnb&#61;7&#10;\logGnb&#61;7&#10;\logInb&#61;7&#10;\logLnb&#61;7&#10;\logSizeUp&#61;6&#10;\numEntriesFirstLocalHistories&#61;64&#10;\pUpdateThresholdWidth&#61;8&#10;\scCountersWidth&#61;6&#10;\updateThresholdWidth&#61;12";
+}
+
+subgraph cluster_system_cpu_branchPred_btb {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="btb \n: SimpleBTB";
+shape=box;
+style="rounded, filled";
+tooltip="clk_domain&#61;system.cpu_clk_domain&#10;\eventq_index&#61;0&#10;\instShiftAmt&#61;2&#10;\numEntries&#61;4096&#10;\numThreads&#61;1&#10;\power_model&#61;&#10;\power_state&#61;system.cpu.branchPred.btb.power_state&#10;\tagBits&#61;16";
+subgraph cluster_system_cpu_branchPred_btb_power_state {
+color="#000000";
+fillcolor="#84827c";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="power_state \n: PowerState";
+shape=box;
+style="rounded, filled";
+tooltip="clk_gate_bins&#61;20&#10;\clk_gate_max&#61;1000000000000&#10;\clk_gate_min&#61;1000&#10;\default_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\leaders&#61;&#10;\possible_states&#61;";
+}
+
+}
+
+subgraph cluster_system_cpu_branchPred_ras {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="ras \n: ReturnAddrStack";
+shape=box;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\numEntries&#61;32&#10;\numThreads&#61;1";
+}
+
+subgraph cluster_system_cpu_branchPred_indirectBranchPred {
+color="#000000";
+fillcolor="#9f9c95";
+fontcolor="#000000";
+fontname=Arial;
+fontsize=14;
+label="indirectBranchPred \n: SimpleIndirectPredictor";
+shape=box;
+style="rounded, filled";
+tooltip="eventq_index&#61;0&#10;\indirectGHRBits&#61;13&#10;\indirectHashGHR&#61;true&#10;\indirectHashTargets&#61;true&#10;\indirectPathLength&#61;3&#10;\indirectSets&#61;256&#10;\indirectTagSize&#61;16&#10;\indirectWays&#61;2&#10;\instShiftAmt&#61;2&#10;\numThreads&#61;1&#10;\speculativePathLength&#61;256";
+}
+
 }
 
 subgraph cluster_system_cpu_isa {
@@ -1000,7 +1096,7 @@ fontsize=14;
 label="switch_cpus_1 \n: X86O3CPU";
 shape=box;
 style="rounded, filled";
-tooltip="LFSTSize&#61;1024&#10;\LQEntries&#61;32&#10;\LSQCheckLoads&#61;true&#10;\LSQDepCheckShift&#61;4&#10;\SQEntries&#61;32&#10;\SSITSize&#61;1024&#10;\activity&#61;0&#10;\backComSize&#61;5&#10;\branchPred&#61;system.switch_cpus_1.branchPred&#10;\cacheLoadPorts&#61;200&#10;\cacheStorePorts&#61;200&#10;\checker&#61;Null&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\commitToDecodeDelay&#61;1&#10;\commitToFetchDelay&#61;1&#10;\commitToIEWDelay&#61;1&#10;\commitToRenameDelay&#61;1&#10;\commitWidth&#61;8&#10;\cpu_id&#61;0&#10;\decodeToFetchDelay&#61;1&#10;\decodeToRenameDelay&#61;1&#10;\decodeWidth&#61;8&#10;\decoder&#61;system.switch_cpus_1.decoder&#10;\dispatchWidth&#61;8&#10;\do_checkpoint_insts&#61;true&#10;\do_statistics_insts&#61;true&#10;\eventq_index&#61;0&#10;\fetchBufferSize&#61;64&#10;\fetchQueueSize&#61;32&#10;\fetchToDecodeDelay&#61;1&#10;\fetchTrapLatency&#61;1&#10;\fetchWidth&#61;8&#10;\forwardComSize&#61;5&#10;\fuPool&#61;system.switch_cpus_1.fuPool&#10;\function_trace&#61;false&#10;\function_trace_start&#61;0&#10;\iewToCommitDelay&#61;1&#10;\iewToDecodeDelay&#61;1&#10;\iewToFetchDelay&#61;1&#10;\iewToRenameDelay&#61;1&#10;\interrupts&#61;&#10;\isa&#61;system.cpu.isa&#10;\issueToExecuteDelay&#61;1&#10;\issueWidth&#61;8&#10;\max_insts_all_threads&#61;0&#10;\max_insts_any_thread&#61;50000000&#10;\mmu&#61;system.switch_cpus_1.mmu&#10;\needsTSO&#61;true&#10;\numIQEntries&#61;64&#10;\numPhysCCRegs&#61;1280&#10;\numPhysFloatRegs&#61;256&#10;\numPhysIntRegs&#61;256&#10;\numPhysMatRegs&#61;2&#10;\numPhysVecPredRegs&#61;32&#10;\numPhysVecRegs&#61;256&#10;\numROBEntries&#61;192&#10;\numRobs&#61;1&#10;\numThreads&#61;1&#10;\power_gating_on_idle&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.switch_cpus_1.power_state&#10;\progress_interval&#61;0&#10;\pwr_gating_latency&#61;300&#10;\renameToDecodeDelay&#61;1&#10;\renameToFetchDelay&#61;1&#10;\renameToIEWDelay&#61;2&#10;\renameToROBDelay&#61;1&#10;\renameWidth&#61;8&#10;\simpoint_start_insts&#61;&#10;\smtCommitPolicy&#61;RoundRobin&#10;\smtFetchPolicy&#61;RoundRobin&#10;\smtIQPolicy&#61;Partitioned&#10;\smtIQThreshold&#61;100&#10;\smtLSQPolicy&#61;Partitioned&#10;\smtLSQThreshold&#61;100&#10;\smtNumFetchingThreads&#61;1&#10;\smtROBPolicy&#61;Partitioned&#10;\smtROBThreshold&#61;100&#10;\socket_id&#61;0&#10;\squashWidth&#61;8&#10;\store_set_clear_period&#61;250000&#10;\switched_out&#61;true&#10;\syscallRetryLatency&#61;10000&#10;\system&#61;system&#10;\tracer&#61;system.switch_cpus_1.tracer&#10;\trapLatency&#61;13&#10;\wbWidth&#61;8&#10;\workload&#61;system.cpu.workload";
+tooltip="LFSTSize&#61;1024&#10;\LQEntries&#61;32&#10;\LSQCheckLoads&#61;true&#10;\LSQDepCheckShift&#61;4&#10;\SQEntries&#61;32&#10;\SSITSize&#61;1024&#10;\activity&#61;0&#10;\backComSize&#61;5&#10;\branchPred&#61;system.switch_cpus_1.branchPred&#10;\cacheLoadPorts&#61;200&#10;\cacheStorePorts&#61;200&#10;\checker&#61;Null&#10;\clk_domain&#61;system.cpu_clk_domain&#10;\commitToDecodeDelay&#61;1&#10;\commitToFetchDelay&#61;1&#10;\commitToIEWDelay&#61;1&#10;\commitToRenameDelay&#61;1&#10;\commitWidth&#61;2&#10;\cpu_id&#61;0&#10;\decodeToFetchDelay&#61;1&#10;\decodeToRenameDelay&#61;1&#10;\decodeWidth&#61;2&#10;\decoder&#61;system.switch_cpus_1.decoder&#10;\dispatchWidth&#61;8&#10;\do_checkpoint_insts&#61;true&#10;\do_statistics_insts&#61;true&#10;\eventq_index&#61;0&#10;\fetchBufferSize&#61;64&#10;\fetchQueueSize&#61;32&#10;\fetchToDecodeDelay&#61;1&#10;\fetchTrapLatency&#61;1&#10;\fetchWidth&#61;2&#10;\forwardComSize&#61;5&#10;\fuPool&#61;system.switch_cpus_1.fuPool&#10;\function_trace&#61;false&#10;\function_trace_start&#61;0&#10;\iewToCommitDelay&#61;1&#10;\iewToDecodeDelay&#61;1&#10;\iewToFetchDelay&#61;1&#10;\iewToRenameDelay&#61;1&#10;\interrupts&#61;&#10;\isa&#61;system.cpu.isa&#10;\issueToExecuteDelay&#61;1&#10;\issueWidth&#61;2&#10;\max_insts_all_threads&#61;0&#10;\max_insts_any_thread&#61;50000000&#10;\mmu&#61;system.switch_cpus_1.mmu&#10;\needsTSO&#61;true&#10;\numIQEntries&#61;64&#10;\numPhysCCRegs&#61;1280&#10;\numPhysFloatRegs&#61;256&#10;\numPhysIntRegs&#61;256&#10;\numPhysMatRegs&#61;2&#10;\numPhysVecPredRegs&#61;32&#10;\numPhysVecRegs&#61;256&#10;\numROBEntries&#61;192&#10;\numRobs&#61;1&#10;\numThreads&#61;1&#10;\power_gating_on_idle&#61;false&#10;\power_model&#61;&#10;\power_state&#61;system.switch_cpus_1.power_state&#10;\progress_interval&#61;0&#10;\pwr_gating_latency&#61;300&#10;\renameToDecodeDelay&#61;1&#10;\renameToFetchDelay&#61;1&#10;\renameToIEWDelay&#61;2&#10;\renameToROBDelay&#61;1&#10;\renameWidth&#61;8&#10;\simpoint_start_insts&#61;&#10;\smtCommitPolicy&#61;RoundRobin&#10;\smtFetchPolicy&#61;RoundRobin&#10;\smtIQPolicy&#61;Partitioned&#10;\smtIQThreshold&#61;100&#10;\smtLSQPolicy&#61;Partitioned&#10;\smtLSQThreshold&#61;100&#10;\smtNumFetchingThreads&#61;1&#10;\smtROBPolicy&#61;Partitioned&#10;\smtROBThreshold&#61;100&#10;\socket_id&#61;0&#10;\squashWidth&#61;8&#10;\store_set_clear_period&#61;250000&#10;\switched_out&#61;true&#10;\syscallRetryLatency&#61;10000&#10;\system&#61;system&#10;\tracer&#61;system.switch_cpus_1.tracer&#10;\trapLatency&#61;13&#10;\wbWidth&#61;8&#10;\workload&#61;system.cpu.workload";
 subgraph cluster_system_switch_cpus_1_mmu {
 color="#000000";
 fillcolor="#bab6ae";
@@ -2148,7 +2244,7 @@ fontsize=14;
 label="ras \n: ReturnAddrStack";
 shape=box;
 style="rounded, filled";
-tooltip="eventq_index&#61;0&#10;\numEntries&#61;16&#10;\numThreads&#61;1";
+tooltip="eventq_index&#61;0&#10;\numEntries&#61;32&#10;\numThreads&#61;1";
 }
 
 subgraph cluster_system_switch_cpus_1_branchPred_indirectBranchPred {

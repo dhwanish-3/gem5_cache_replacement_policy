@@ -71,7 +71,7 @@ class ReturnAddrStack(SimObject):
     cxx_header = "cpu/pred/ras.hh"
 
     numThreads = Param.Unsigned(Parent.numThreads, "Number of threads")
-    numEntries = Param.Unsigned(16, "Number of RAS entries")
+    numEntries = Param.Unsigned(32, "Number of RAS entries")
 
 
 class BranchTargetBuffer(ClockedObject):
