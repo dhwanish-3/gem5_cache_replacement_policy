@@ -22,7 +22,7 @@ LIP2::reset(const std::shared_ptr<ReplacementData>& replacement_data) const
 
     // Set last touch timestamp
     std::static_pointer_cast<LRUReplData>(
-        replacement_data)->lastTouchTick = Tick(0);
+        replacement_data)->lastTouchTick = secondSmallestTick + 1;
 
     // std::cout << "second smallestTick: " << secondSmallestTick << std::endl;
     // std::cout << "smallestTick: " << smallestTick << std::endl;
